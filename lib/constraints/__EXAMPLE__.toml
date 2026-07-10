@@ -1,0 +1,7 @@
+[ Example Constraint ]
+title = "Example Constraint"
+alias = "example"
+description = "this is an example contstaint that x = 2y+z"
+uuid = a1a1a1a-a1a1-a1a1-a1a1-a1a1a1a1a1a1
+lean = def eq_prop : Prop := ∀ (x y z : ℝ), x = 2 * y + z
+CMIP_vars = ["husra", "tas"] # sample CMIP variables you might use for this
