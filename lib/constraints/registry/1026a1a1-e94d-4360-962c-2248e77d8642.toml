@@ -1,0 +1,78 @@
+schema_version = "0.1.0"
+uuid = "1026a1a1-e94d-4360-962c-2248e77d8642"
+alias = "hall_qu_2006_snow_albedo"
+title = "Snow-albedo feedback: seasonal cycle constrains climate-change feedback"
+status = "confirmed_candidate"
+
+[domain]
+realm = "land_cryosphere"
+
+[citation]
+doi = "10.1029/2005GL025127"
+year = 2006
+authors = ["Hall, A.", "Qu, X."]
+bibtex_key = "HallQu2006"
+
+[claim_provenance]
+discovered_in = ["CMIP3"]
+also_discussed_in = ["CMIP5", "CMIP6"]
+
+[predictor]
+id = "snow_albedo_feedback_seasonal"
+short_name = "SAF_seasonal"
+units = "%/K"
+description = "Northern Hemisphere land snow-albedo feedback diagnosed from the seasonal cycle"
+
+[target]
+id = "snow_albedo_feedback_climate_change"
+short_name = "SAF_climate_change"
+units = "%/K"
+description = "Northern Hemisphere land snow-albedo feedback under climate change"
+
+[relationship]
+description = """
+Across the original multi-model ensemble, climate-change snow-albedo feedback
+covaries closely with the seasonal-cycle snow-albedo feedback. Observations of
+the seasonal diagnostic are therefore used to constrain the climate-change feedback.
+"""
+latex = "Y \\approx a + b X"
+
+[hall_assessment]
+plausible_mechanism = true
+mechanism_verified = true
+out_of_sample_ok = true
+notes = "Canonical pedagogical example in Hall et al. (2019); mechanism links seasonal and GHG-forced snow retreat."
+
+[[assessments]]
+source = "Hall2019"
+verdict = "confirmed_candidate"
+notes = "Used as a confirmation-path exemplar for emergent constraints."
+
+[[assessments]]
+source = "Bowman2018"
+verdict = "hec_discussed"
+notes = "Hierarchical emergent-constraint framework illustrated on snow-albedo feedback."
+
+[[variables]]
+role = "predictor_input"
+name = "snc"
+vocab = "cmip"
+
+[[variables]]
+role = "predictor_input"
+name = "tas"
+vocab = "cmip"
+
+[[variables]]
+role = "predictor_input"
+name = "rsds"
+vocab = "cmip"
+
+[[variables]]
+role = "predictor_input"
+name = "rsus"
+vocab = "cmip"
+
+[notes]
+caveats = []
+related_aliases = []

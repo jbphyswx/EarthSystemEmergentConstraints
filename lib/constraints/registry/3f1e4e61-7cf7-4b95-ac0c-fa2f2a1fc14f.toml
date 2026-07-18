@@ -1,0 +1,65 @@
+schema_version = "0.1.0"
+uuid = "3f1e4e61-7cf7-4b95-ac0c-fa2f2a1fc14f"
+alias = "volodin_2008_cloud_fraction"
+title = "Relation between tropical–midlatitude cloud fraction difference and climate sensitivity"
+status = "proposed"
+
+[domain]
+realm = "clouds"
+
+[citation]
+doi = "10.1134/S0001433808040120"
+year = 2008
+authors = ["Volodin, E. M."]
+bibtex_key = "Volodin2008"
+
+[claim_provenance]
+discovered_in = ["CMIP3"]
+also_discussed_in = ["CMIP5", "CMIP6"]
+
+[predictor]
+id = "tropical_minus_midlatitude_cloud_fraction"
+short_name = "CF_trop_mid"
+units = "1"
+description = "Difference between tropical and mid-latitude total cloud fraction in present-day climate"
+
+[target]
+id = "equilibrium_climate_sensitivity"
+short_name = "ECS"
+units = "K"
+description = "Equilibrium climate sensitivity"
+
+[relationship]
+description = """
+Intermodel spread in the difference between tropical and mid-latitude cloud fraction
+covaries with ECS in early multi-model ensembles. The present-day cloud-fraction
+contrast is the constraining observable.
+"""
+latex = "ECS \\approx a + b\\,(C_{\\mathrm{trop}} - C_{\\mathrm{mid}})"
+
+[hall_assessment]
+plausible_mechanism = true
+mechanism_verified = false
+out_of_sample_ok = true
+notes = "Early cloud-fraction EC (Schlund VOL). Caldwell et al. (2018) emphasize relatedness/independence issues versus other cloud ECs."
+
+[[assessments]]
+source = "Schlund2020"
+verdict = "skill_reduced_but_significant"
+notes = "VOL retains statistically significant skill on both CMIP5 and CMIP6 in Schlund et al. (2020), with reduced R² on CMIP6."
+
+[[assessments]]
+source = "Caldwell2018"
+verdict = "related_to_other_ecs_constraints"
+notes = "Cloud-fraction-based predictors can be highly correlated with other ECS constraints; independence must be assessed before combining."
+
+[[variables]]
+role = "predictor_input"
+name = "clt"
+vocab = "cmip"
+
+[notes]
+caveats = [
+  "May not be independent of other tropical cloud / ECS constraints.",
+]
+related_aliases = ["brient_schneider_2016_tlc_albedo"]

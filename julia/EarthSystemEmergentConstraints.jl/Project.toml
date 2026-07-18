@@ -1,0 +1,24 @@
+name = "EarthSystemEmergentConstraints"
+uuid = "a8c3e4f1-2b5d-4e7a-9c1d-0f2e3a4b5c6d"
+authors = ["Jordan Benjamin <jordantbenjamin@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
+UUIDs = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
+
+[compat]
+julia = "1.10"
+TOML = "1.0"
+UUIDs = "1.0"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
+
+[workspaces]
+projects = ["test", "docs", "examples"]
+
+[sources]

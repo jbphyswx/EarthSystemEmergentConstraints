@@ -1,0 +1,77 @@
+schema_version = "0.1.0"
+uuid = "02f52cf5-c4ac-481d-aaaa-aae72be65b2e"
+alias = "cox_2013_tropical_land_carbon"
+title = "Sensitivity of tropical land carbon to warming constrained by the CO2–temperature relationship"
+status = "proposed"
+
+[domain]
+realm = "carbon_cycle"
+
+[citation]
+doi = "10.1038/nature11882"
+year = 2013
+authors = ["Cox, P. M.", "Pearson, D.", "Booth, B. B.", "Friedlingstein, P.", "Huntingford, C.", "Jones, C. D.", "Luke, C. M."]
+bibtex_key = "Cox2013"
+
+[claim_provenance]
+discovered_in = ["C4MIP", "CMIP5"]
+also_discussed_in = ["CMIP6"]
+
+[predictor]
+id = "co2_growth_rate_temperature_sensitivity"
+short_name = "gamma_CO2_T"
+units = "GtC/yr/K"
+description = "Sensitivity of the annual atmospheric CO2 growth rate to tropical temperature variations in the present day"
+
+[target]
+id = "tropical_land_carbon_loss_per_kelvin"
+short_name = "gamma_LT"
+units = "GtC/K"
+description = "Sensitivity of tropical land carbon storage to climate warming (carbon loss per kelvin)"
+
+[relationship]
+description = """
+Across carbon-cycle-enabled models, projected tropical land carbon loss per degree of
+warming covaries with the present-day sensitivity of the atmospheric CO2 growth rate
+to temperature. Observational estimates of that sensitivity constrain future tropical
+land carbon vulnerability. This entry represents the tropical land carbon–temperature
+emergent-constraint lineage highlighted in Hall et al. (2019).
+"""
+latex = "\\gamma_{LT} \\approx a + b\\,\\gamma_{CO_2,T}"
+
+[hall_assessment]
+plausible_mechanism = true
+mechanism_verified = true
+out_of_sample_ok = true
+notes = "Non-ECS Earth-system example used in Hall et al. (2019) to illustrate biogeochemical emergent constraints."
+
+[[assessments]]
+source = "Hall2019"
+verdict = "confirmed_candidate"
+notes = "Cited as a leading climate–carbon cycle emergent constraint with a clear process narrative."
+
+[[assessments]]
+source = "Cox2013"
+verdict = "proposed"
+notes = "Original Nature paper establishing the CO2–temperature sensitivity constraint on tropical land carbon."
+
+[[variables]]
+role = "predictor_input"
+name = "tas"
+vocab = "cmip"
+
+[[variables]]
+role = "target_related"
+name = "cVeg"
+vocab = "cmip"
+
+[[variables]]
+role = "target_related"
+name = "cSoil"
+vocab = "cmip"
+
+[notes]
+caveats = [
+  "Exact predictor construction (regions, detrending, CO2 growth-rate datasets) varies across follow-up papers.",
+]
+related_aliases = []

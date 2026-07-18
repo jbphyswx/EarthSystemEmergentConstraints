@@ -1,0 +1,70 @@
+schema_version = "0.1.0"
+uuid = "fbc1881c-39d7-4b75-b74b-896f72ec7edd"
+alias = "sherwood_2014_ltmi"
+title = "Lower-tropospheric mixing and the cloud feedback contribution to climate sensitivity"
+status = "proposed"
+
+[domain]
+realm = "clouds"
+
+[citation]
+doi = "10.1038/nature12829"
+year = 2014
+authors = ["Sherwood, S. C.", "Bony, S.", "Dufresne, J.-L."]
+bibtex_key = "Sherwood2014"
+
+[claim_provenance]
+discovered_in = ["CMIP5"]
+also_discussed_in = ["CMIP6"]
+
+[predictor]
+id = "lower_tropospheric_mixing_index"
+short_name = "LTMI"
+units = "1"
+description = "Lower-tropospheric mixing index combining large-scale (D) and small-scale (S) mixing measures over tropical oceans"
+
+[target]
+id = "equilibrium_climate_sensitivity"
+short_name = "ECS"
+units = "K"
+description = "Equilibrium climate sensitivity"
+
+[relationship]
+description = """
+Models with stronger lower-tropospheric mixing in the present climate tend to have
+higher climate sensitivity, via links to low-cloud and humidity responses under warming.
+The combined mixing index (often D+S / LTMI) is the observable-side predictor.
+"""
+latex = "ECS \\approx a + b\\,\\mathrm{LTMI}"
+
+[hall_assessment]
+plausible_mechanism = true
+mechanism_verified = true
+out_of_sample_ok = true
+notes = "Process-focused mixing constraint; Schlund et al. (2020) SHL retains significance on CMIP6 though skill is reduced."
+
+[[assessments]]
+source = "Schlund2020"
+verdict = "skill_reduced_but_significant"
+notes = "SHL (lower tropospheric mixing index) among constraints with residual CMIP6 significance."
+
+[[assessments]]
+source = "Caldwell2018"
+verdict = "evaluated"
+notes = "Sherwood mixing constraints included in comparative ECS evaluation."
+
+[[variables]]
+role = "predictor_input"
+name = "wa"
+vocab = "cmip"
+
+[[variables]]
+role = "predictor_input"
+name = "hus"
+vocab = "cmip"
+
+[notes]
+caveats = [
+  "Literature distinguishes large-scale (D), small-scale (S), and combined (D+S) indices; this alias denotes the combined LTMI lineage.",
+]
+related_aliases = []

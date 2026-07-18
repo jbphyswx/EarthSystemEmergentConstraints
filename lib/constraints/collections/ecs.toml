@@ -1,0 +1,8 @@
+name = "ecs"
+description = "Starter-set constraints whose target is equilibrium climate sensitivity"
+aliases = [
+  "cox_2018_psi_ecs",
+  "brient_schneider_2016_tlc_albedo",
+  "sherwood_2014_ltmi",
+  "volodin_2008_cloud_fraction",
+]

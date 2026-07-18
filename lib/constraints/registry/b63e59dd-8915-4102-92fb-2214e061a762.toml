@@ -1,0 +1,66 @@
+schema_version = "0.1.0"
+uuid = "b63e59dd-8915-4102-92fb-2214e061a762"
+alias = "cox_2018_psi_ecs"
+title = "Emergent constraint on equilibrium climate sensitivity from global temperature variability"
+status = "contested"
+
+[domain]
+realm = "physical_climate"
+
+[citation]
+doi = "10.1038/nature25450"
+year = 2018
+authors = ["Cox, P. M.", "Huntingford, C.", "Williamson, M. S."]
+bibtex_key = "Cox2018"
+
+[claim_provenance]
+discovered_in = ["CMIP5"]
+also_discussed_in = ["CMIP6"]
+
+[predictor]
+id = "psi_temperature_variability"
+short_name = "psi"
+units = "K"
+description = "Global-mean temperature variability metric combining variance and lag-1 autocorrelation (psi)"
+
+[target]
+id = "equilibrium_climate_sensitivity"
+short_name = "ECS"
+units = "K"
+description = "Equilibrium climate sensitivity (global mean surface warming for CO2 doubling)"
+
+[relationship]
+description = """
+A fluctuation–dissipation–motivated relationship links short-term global temperature
+variability (psi) to equilibrium climate sensitivity across CMIP5 models. Later work
+found the relationship much weaker in CMIP6 under the original assumptions.
+"""
+latex = "ECS \\approx a + b\\,\\psi"
+
+[hall_assessment]
+plausible_mechanism = true
+mechanism_verified = false
+out_of_sample_ok = false
+notes = "Theory-led proposal; CMIP6 out-of-sample skill is substantially reduced (Schlund et al. 2020 and follow-ups)."
+
+[[assessments]]
+source = "Schlund2020"
+verdict = "weakened_on_cmip6"
+notes = "Correlation and significance drop markedly from CMIP5 to CMIP6 for the COX constraint."
+
+[[assessments]]
+source = "Hall2019"
+verdict = "proposed"
+notes = "Cited among prominent ECS emergent constraints; confirmation requires robust OOS behavior."
+
+[[variables]]
+role = "predictor_input"
+name = "tas"
+vocab = "cmip"
+
+[notes]
+caveats = [
+  "Original CMIP5 skill does not automatically transfer to CMIP6.",
+  "Subsequent papers debate assumptions relating variability parameters to ECS.",
+]
+related_aliases = []

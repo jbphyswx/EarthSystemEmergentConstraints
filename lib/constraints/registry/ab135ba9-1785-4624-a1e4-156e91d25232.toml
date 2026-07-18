@@ -1,0 +1,81 @@
+schema_version = "0.1.0"
+uuid = "ab135ba9-1785-4624-a1e4-156e91d25232"
+alias = "brient_schneider_2016_tlc_albedo"
+title = "Constraints on climate sensitivity from space-based measurements of low-cloud reflection"
+status = "proposed"
+
+[domain]
+realm = "clouds"
+
+[citation]
+doi = "10.1175/JCLI-D-15-0897.1"
+year = 2016
+authors = ["Brient, F.", "Schneider, T."]
+bibtex_key = "BrientSchneider2016"
+
+[claim_provenance]
+discovered_in = ["CMIP5"]
+also_discussed_in = ["CMIP6"]
+
+[predictor]
+id = "tlc_sw_albedo_sst_sensitivity"
+short_name = "TLC_albedo_dSST"
+units = "%/K"
+description = "Sensitivity of tropical low-cloud shortwave albedo to sea-surface temperature variations"
+
+[target]
+id = "equilibrium_climate_sensitivity"
+short_name = "ECS"
+units = "K"
+description = "Equilibrium climate sensitivity"
+
+[relationship]
+description = """
+Intermodel differences in the response of tropical low-cloud shortwave reflectivity
+to SST variations covary with ECS. Models with stronger brightening (or weaker
+darkening) of low clouds as SST rises tend toward different ECS values; observations
+of the present-day sensitivity are used to constrain ECS.
+"""
+latex = "ECS \\approx a + b\\,(\\partial \\alpha_{\\mathrm{TLC}} / \\partial \\mathrm{SST})"
+
+[hall_assessment]
+plausible_mechanism = true
+mechanism_verified = true
+out_of_sample_ok = true
+notes = "Process-oriented low-cloud constraint; among ECS constraints with residual CMIP6 skill in Schlund et al. (2020) (BRI)."
+
+[[assessments]]
+source = "Schlund2020"
+verdict = "skill_reduced_but_significant"
+notes = "Labeled BRI; still shows expected-sign correlation on CMIP6 though R² falls relative to CMIP5."
+
+[[assessments]]
+source = "Caldwell2018"
+verdict = "evaluated"
+notes = "Included among ECS emergent constraints evaluated for credibility and independence."
+
+[[variables]]
+role = "predictor_input"
+name = "rsutcs"
+vocab = "cmip"
+
+[[variables]]
+role = "predictor_input"
+name = "rsdt"
+vocab = "cmip"
+
+[[variables]]
+role = "predictor_input"
+name = "tos"
+vocab = "cmip"
+
+[[variables]]
+role = "predictor_input"
+name = "hur"
+vocab = "cmip"
+
+[notes]
+caveats = [
+  "Exact observational datasets and TLC masking definitions matter for quantitative application.",
+]
+related_aliases = []

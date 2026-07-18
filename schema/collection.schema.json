@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/jbphyswx/EarthSystemEmergentConstraints/schema/collection.schema.json",
+  "title": "ConstraintCollection",
+  "description": "A named list of constraint aliases.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["name", "aliases"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "description": { "type": "string" },
+    "aliases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*$"
+      },
+      "uniqueItems": true
+    }
+  }
+}

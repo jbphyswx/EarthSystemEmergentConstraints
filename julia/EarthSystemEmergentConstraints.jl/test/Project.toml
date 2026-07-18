@@ -1,0 +1,8 @@
+[deps]
+EarthSystemEmergentConstraints = "a8c3e4f1-2b5d-4e7a-9c1d-0f2e3a4b5c6d"
+
+[compat]
+julia = "1.10"
+
+[sources]
+EarthSystemEmergentConstraints = { path = ".." }

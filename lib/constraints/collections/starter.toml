@@ -1,0 +1,10 @@
+name = "starter"
+description = "v0.1 pedagogical catalog set spanning cryosphere, ECS/clouds, and carbon cycle"
+aliases = [
+  "hall_qu_2006_snow_albedo",
+  "cox_2018_psi_ecs",
+  "brient_schneider_2016_tlc_albedo",
+  "sherwood_2014_ltmi",
+  "volodin_2008_cloud_fraction",
+  "cox_2013_tropical_land_carbon",
+]

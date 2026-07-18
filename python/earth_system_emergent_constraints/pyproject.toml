@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "earth-system-emergent-constraints"
+version = "0.1.0"
+description = "Catalog loaders for Earth-system emergent-constraint definitions"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Jordan Benjamin", email = "jordantbenjamin@gmail.com" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "jsonschema>=4.18"]
+cmip = []
+
+[project.urls]
+Homepage = "https://github.com/jbphyswx/EarthSystemEmergentConstraints"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

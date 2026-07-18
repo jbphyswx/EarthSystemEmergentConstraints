@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  schema:
+    name: Validate TOML against JSON Schema
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python/earth_system_emergent_constraints
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package and jsonschema
+        run: |
+          python -m pip install -U pip
+          python -m pip install -e ".[dev]"
+      - name: Pytest (includes schema validation)
+        env:
+          ESEC_DATA_ROOT: ${{ github.workspace }}
+        run: pytest -q
+
+  julia:
+    name: Julia tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: "1.11"
+      - uses: julia-actions/cache@v2
+      - name: Run tests
+        env:
+          ESEC_DATA_ROOT: ${{ github.workspace }}
+        run: |
+          julia --project=julia/EarthSystemEmergentConstraints.jl -e '
+            using Pkg
+            Pkg.instantiate()
+            Pkg.test()
+          '
